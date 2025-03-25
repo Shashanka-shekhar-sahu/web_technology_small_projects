@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Bootstrap demo</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">Employees App</a>
+        </div>
+    </nav>
+    <section class="container-fluid mt-4">
+        <h2>Employees Filter Module:-</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consectetur nobis delectus sequi labore provident, incidunt earum alias asperiores nam aspernatur quas unde laborum nemo! Labore illum culpa ipsa ea quaerat saepe ab cupiditate cumque corrupti omnis quas, laborum rerum similique impedit provident voluptatibus atque ex quo beatae blanditiis quibusdam temporibus officia quasi vero! Dolores et quaerat consectetur sequi tempora eius minus esse! Aliquam temporibus.</p>
+
+        <div class="row">
+            <div class="col-md-4 d-grid">
+                <!-- All Emps -->
+                <button class="btn btn-dark" id="all-emps">All Employees</button>
+            </div>
+            <div class="col-md-4 d-grid">
+                <!-- Male Emps -->
+                <button class="btn btn-dark" id="male-emps">Male Employees</button>
+            </div>
+            <div class="col-md-4 d-grid">
+                <!-- Female Emps -->
+                <button class="btn btn-dark" id="female-emps">Female Employees</button>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-3">
+                <!-- Empty -->
+            </div>
+            <div class="col-6">
+                <form id="form-submit">
+                    <input type="text" placeholder="Search Here" class="form-control" id="emp"> 
+                    <input type="submit" class="btn btn-dark mt-3">
+                </form>
+            </div>
+            <div class="col-3">
+                <!-- Empty -->
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container-fluid mt-4">
+        <div class="row">
+            <div class="col">
+                <table class="table text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>EmpId</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <footer style="margin-bottom:500px;"></footer>
+  <!-- Script Code -->
+  <script src="employee_filter.js"></script>
+  </body>
+</html>
