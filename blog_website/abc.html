@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Lock System</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        video {
+            border: 2px solid black;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+        #status {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .register-btn { background: green; color: white; }
+        .verify-btn { background: blue; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Face Lock Authentication</h1>
+        <video id="video" width="360" height="280" autoplay></video>
+        <p id="status">Please register your face first.</p>
+        <button id="register" class="register-btn">Register Face</button>
+        <button id="verify" class="verify-btn" disabled>Verify Face</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const statusText = document.getElementById('status');
+        const registerBtn = document.getElementById('register');
+        const verifyBtn = document.getElementById('verify');
+        let storedFaceDescriptor = null;
+        let stream = null;
+
+        async function startVideo() {
+            if (!stream) {
+                stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+                video.srcObject = stream;
+                video.style.display = 'block';
+            }
+        }
+
+        function stopVideo() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+                video.style.display = 'none';
+            }
+        }
+
+        Promise.all([
+            faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js/models'),
+            faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js/models'),
+            faceapi.nets.faceRecognitionNet.loadFromUri('https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js/models')
+        ]);
+
+        registerBtn.addEventListener('click', async () => {
+            await startVideo();
+            setTimeout(async () => {
+                const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
+                if (detections) {
+                    storedFaceDescriptor = new faceapi.LabeledFaceDescriptors('User', [detections.descriptor]);
+                    statusText.innerText = 'Face registered. You can now verify.';
+                    verifyBtn.disabled = false;
+                } else {
+                    statusText.innerText = 'No face detected. Try again.';
+                }
+                stopVideo();
+            }, 3000);
+        });
+
+        verifyBtn.addEventListener('click', async () => {
+            if (!storedFaceDescriptor) {
+                statusText.innerText = 'No registered face. Please register first.';
+                return;
+            }
+            await startVideo();
+            setTimeout(async () => {
+                const detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
+                if (detections) {
+                    const faceMatcher = new faceapi.FaceMatcher([storedFaceDescriptor], 0.6);
+                    const bestMatch = faceMatcher.findBestMatch(detections.descriptor);
+                    if (bestMatch.label === 'User') {
+                        statusText.innerText = 'Access Granted';
+                        statusText.style.color = 'green';
+                    } else {
+                        statusText.innerText = 'Access Denied';
+                        statusText.style.color = 'red';
+                    }
+                } else {
+                    statusText.innerText = 'No Face Detected';
+                    statusText.style.color = 'black';
+                }
+                stopVideo();
+            }, 3000);
+        });
+    </script>
+
+
+
+
+<button></button>
+</body>
+</html>
