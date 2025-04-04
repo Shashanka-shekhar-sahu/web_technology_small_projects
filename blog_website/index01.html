@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Blog</h1>
+
+        <!-- Blog Form -->
+        <div class="blog-form">
+            <input type="text" id="title" placeholder="Blog Title">
+            <textarea id="content" placeholder="Write your blog post..."></textarea>
+            <button onclick="addPost()">Add Post</button>
+        </div>
+
+        <!-- Blog Posts -->
+        <div id="blogPosts"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
