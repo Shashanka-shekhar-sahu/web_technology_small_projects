@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random 20-Word Paragraph Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Paragraph Highlighter Tool With Select Paragraph</h2>
+
+    <div class="top-controls">
+      <!-- Left side: input + buttons -->
+      <div class="input-section">
+        <textarea id="paraInput" rows="3" placeholder="Type your paragraph..."></textarea>
+        <button onclick="addParagraph()">Add Paragraph</button>
+        <button onclick="addRandomParagraph()">Generate 20-Word Paragraph</button>
+      </div>
+    
+      <!-- Right side: search -->
+      <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Search a word..." oninput="highlightText()">
+      </div>
+    </div>
+    
+    <!-- Paragraph container -->
+    <div id="paragraphContainer">
+      <p class="paragraph">
+        JavaScript is a powerful programming language used in web development.
+      </p>
+    </div>
+    
+
+  <script src="script.js"></script>
+
+</body>
+</html>
