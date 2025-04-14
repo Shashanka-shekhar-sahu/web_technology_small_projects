@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark/Light Mode with Brightness & Contrast</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <button class="toggle-button" id="modeToggle">Toggle Dark/Light Mode</button>
+
+    <div class="slider-container">
+      <label for="brightnessRange">Brightness</label>
+      <input type="range" id="brightnessRange" min="50" max="150" value="100">
+    </div>
+
+    <div class="slider-container">
+      <label for="contrastRange">Contrast</label>
+      <input type="range" id="contrastRange" min="50" max="150" value="100">
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

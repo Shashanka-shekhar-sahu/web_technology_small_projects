@@ -1,0 +1,50 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --brightness: 100%;
+    --contrast: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    filter: brightness(var(--brightness)) contrast(var(--contrast));
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .toggle-button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .slider-container {
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .slider-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .slider-container input {
+    width: 100%;
+  }
