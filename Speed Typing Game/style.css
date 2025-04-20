@@ -1,0 +1,252 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+  }
+  
+  #mode-select {
+    display: block;
+  }
+  
+  #game-type-select {
+    margin-top: 2rem;
+  }
+  
+  button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    background-color: #0056b3;
+    transform: scale(1);
+  }
+  
+  #game-type-select button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  #game-type-select button:nth-child(2) {
+    background-color: #007bff;
+  }
+  
+  #game-type-select button:hover {
+    background-color: #218838;
+  }
+  
+  #game-type-select button:nth-child(2):hover {
+    background-color: #0056b3;
+  }
+  
+  /* Targeted Button Styles */
+  #game-type-select button:first-child {
+    background-color: #28a745;
+  }
+  
+  #game-type-select button:last-child {
+    background-color: #007bff;
+  }
+  
+  #game-type-select button:focus {
+    outline: none;
+  }
+  
+  #game-type-select {
+    text-align: center;
+  }
+  
+  #mode-select button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Mode Selection Buttons: Word vs Paragraph */
+  #mode-select button:first-child {
+    background-color: #f39c12; /* Orange for Word Mode */
+  }
+  
+  #mode-select button:nth-child(2) {
+    background-color: #8e44ad; /* Purple for Paragraph Mode */
+  }
+  
+  #mode-select button:hover {
+    transform: scale(1.05);
+  }
+  
+  #mode-select button:active {
+    background-color: #f1c40f; /* Lighter yellow on active state */
+  }
+  
+  #mode-select button:first-child:hover {
+    background-color: #e67e22; /* Darker orange for Word Mode */
+  }
+  
+  #mode-select button:nth-child(2):hover {
+    background-color: #9b59b6; /* Darker purple for Paragraph Mode */
+  }
+  
+  #mode-select button:focus {
+    outline: none;
+  }
+  
+  #game-area {
+    display: none;
+    padding: 2rem;
+  }
+  
+  #text-input {
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  
+  #target-text {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    min-height: 2rem;
+  }
+  
+  .correct {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .info div {
+    font-size: 1.2rem;
+  }
+  
+  #game-over {
+    font-size: 1.5rem;
+    color: red;
+    margin-top: 1rem;
+    display: none;
+  }
+  
+  #restart-btn {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #restart-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  #leaderboard {
+    display: none;
+  }
+  
+  #leaderboard div {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+  }
+/* General styling for buttons */
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Start Game button */
+#start-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#start-btn:hover {
+    background-color: #45a049;
+}
+
+/* Player 1 button */
+#player1-btn {
+    background-color: #1E90FF;
+    color: white;
+}
+
+#player1-btn:hover {
+    background-color: #4682B4;
+}
+
+/* Player 2 button */
+#player2-btn {
+    background-color: #FF6347;
+    color: white;
+}
+
+#player2-btn:hover {
+    background-color: #FF4500;
+}
+
+/* Player Turn indicator */
+#player-turn {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px;
+}
+/* Delete Button for Leaderboard */
+.delete-btn {
+    margin-left: 10px;
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background-color: #FF4500;
+}
+  

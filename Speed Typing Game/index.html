@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed Typing Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Speed Typing Game</h1>
+    <div id="progress-bar"></div>
+
+    <div id="mode-select">
+      <button onclick="startMode('word')">Word Mode</button>
+      <button onclick="startMode('paragraph')">Paragraph Mode</button>
+    </div>
+
+    <div id="game-type-select">
+      <button onclick="selectGameType('single')">Single Player</button>
+      <button onclick="selectGameType('multiplayer')">Multiplayer</button>
+    </div>
+
+    <div id="multiplayer-names" style="display: none;">
+      <h2>Enter Player Names:</h2>
+      <input type="text" id="player1-name" placeholder="Player 1 Name" required />
+      <input type="text" id="player2-name" placeholder="Player 2 Name" required />
+      <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game-area" style="display: none;">
+      <div id="target-text"></div>
+      <input type="text" id="text-input" placeholder="Start typing here..." autocomplete="off" />
+      <div class="info">
+        <div>⏱️ Time: <span id="time">60</span>s</div>
+        <div id="score">Player 1: 0</div>
+      </div>
+      <div id="player-turn">Player 1's turn</div>
+      <div id="game-over" style="display: none;"></div>
+      <button id="restart-btn">Restart</button>
+    </div>
+
+    <div id="leaderboard" style="display: none;">
+      <h3>Leaderboard</h3>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
